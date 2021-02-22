@@ -1,11 +1,14 @@
+import ExperienceBar from './components/ExperienceBar';
+
+import { MainContainer } from './AppStyles';
 import { GlobalStyle } from './styles/global';
 
 const App: React.FC = () => {
   return (
-    <>
-      <h1>Hello NLW</h1>
+    <MainContainer>
+      <ExperienceBar />
       <GlobalStyle />
-    </>
+    </MainContainer>
   );
 }
 
