@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { HeaderContainer, ProgressBar, ProgressBarLabel } from './styles';
 
 const ExperienceBar: React.FC = () => {
-    const [ experience, setExperience ] = useState(400);
+    const [ experience, setExperience ] = useState(200);
 
     return (
         <HeaderContainer>
