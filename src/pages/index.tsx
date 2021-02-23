@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import { LeftContainer, MainContainer } from "../AppStyles";
 import CompletedChallenges from "../components/CompletedChallenges";
 import Countdown from "../components/Countdown";
@@ -8,6 +10,10 @@ import Profile from "../components/Profile";
 export default function Home() {
   return (
     <MainContainer>
+      <Head>
+        <title>Início | Move It</title>
+      </Head>
+
       <ExperienceBar />
 
       <section>

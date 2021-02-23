@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { variables } from '../../styles/global';
 
-export const Container = styled.div`
+export const CountdownContainer = styled.div`
     display: flex;
     align-items: center;
     font-family: 'Rajdhani', sans-serif;
@@ -37,3 +37,29 @@ export const Container = styled.div`
         margin: 0 0 0.5rem;
     }
 `;
+
+export const CountdownButton = styled.button`
+    width: 100%;
+    height: 5rem;
+
+    margin-top: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 5px;
+
+    background: ${ variables.blue };
+    color: ${ variables.white };
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    transition: background-color .2s;
+
+    &:hover {
+        background: ${ variables.blueDark }
+    }
+`
