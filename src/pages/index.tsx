@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
-import { LeftContainer, MainContainer } from "../AppStyles";
+import { MainContainer } from "../AppStyles";
+import ChallengeBox from '../components/ChallengeBox';
 import CompletedChallenges from "../components/CompletedChallenges";
 import Countdown from "../components/Countdown";
 
@@ -17,13 +18,13 @@ export default function Home() {
       <ExperienceBar />
 
       <section>
-        <LeftContainer>
+        <div>
           <Profile />
           <CompletedChallenges />
           <Countdown />
-        </LeftContainer>
+        </div>
         <div>
-
+          <ChallengeBox />
         </div>
       </section>
     </MainContainer>

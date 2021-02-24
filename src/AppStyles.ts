@@ -21,7 +21,3 @@ export const MainContainer = styled.div`
     }
 
 `;
-
-export const LeftContainer = styled.div`
-
-`
