@@ -67,6 +67,8 @@ export const CountdownButton = styled.button<{ active: boolean }>`
     &:disabled {
         cursor: not-allowed;
         background: ${ variables.white };
-        color: ${ variables.text }
+        color: ${ variables.text };
+
+        border-bottom: 3px solid ${ variables.green };
     }
 `

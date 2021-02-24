@@ -1,4 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { FiCheckCircle } from 'react-icons/fi';
+import { variables } from '../../styles/global';
 
 import { CountdownButton, CountdownContainer } from './styles';
 
@@ -60,6 +62,7 @@ const Countdown: React.FC = () => {
                         active={ false }
                     >
                         Ciclo encerrado
+                        <FiCheckCircle style={{ marginLeft: 8 }} size={15} color={ variables.green } />
                     </CountdownButton>
                 ) : (
                     <CountdownButton
