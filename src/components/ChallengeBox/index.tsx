@@ -4,7 +4,7 @@ import { ChallengesContext } from '../../contexts/ChallengeContext';
 import { ChallengeActive, ChallengeNotActive, CompleteButton, Container } from './styles';
 
 const ChallengeBox: React.FC = () => {
-    const { activeChallenge } = useContext( ChallengesContext );
+    const { activeChallenge, resetChallenge } = useContext( ChallengesContext );
 
     return (
         <Container>
@@ -25,6 +25,7 @@ const ChallengeBox: React.FC = () => {
                         <CompleteButton
                             type="button"
                             buttonType="failed"
+                            onClick={ resetChallenge }
                         >
                             Falhei
                         </CompleteButton>
