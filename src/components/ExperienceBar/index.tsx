@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ChallengesContext } from '../../contexts/ChallengeContext';
 
 import { HeaderContainer, ProgressBar, ProgressBarLabel } from './styles';
 
 const ExperienceBar: React.FC = () => {
-    const [ experience, setExperience ] = useState(200);
+    const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);
 
     return (
         <HeaderContainer>
             <span>0 xp</span>
             <div>
                 <ProgressBar 
-                    experienceGained={ experience }
-                    experienceTotal={ 600 }
+                    experienceGained={ currentExperience }
+                    experienceTotal={ experienceToNextLevel }
                 />
 
                 <ProgressBarLabel
-                    experienceGained={ experience }
-                    experienceTotal={ 600 }
-                >{ experience } xp</ProgressBarLabel>
+                    experienceGained={ currentExperience }
+                    experienceTotal={ experienceToNextLevel }
+                >{ currentExperience } xp</ProgressBarLabel>
             </div>
-            <span>600 xp</span>
+            <span>{ experienceToNextLevel } xp</span>
         </HeaderContainer>
     );
 }
