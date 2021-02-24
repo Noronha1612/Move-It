@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
+import { ChallengesContext } from '../../contexts/ChallengeContext';
 import { variables } from '../../styles/global';
 
 import { CountdownButton, CountdownContainer } from './styles';
@@ -7,6 +8,8 @@ import { CountdownButton, CountdownContainer } from './styles';
 let countdownTimeout: NodeJS.Timeout;
 
 const Countdown: React.FC = () => {
+    const { startNewChallenge } = useContext(ChallengesContext);
+
     const [ time, setTime ] = useState(25 * 60);
     const [ isActive, setIsActive ] = useState(false);
     const [ hasFinished, setHasFinished ] = useState(false);
@@ -17,8 +20,6 @@ const Countdown: React.FC = () => {
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
-
-
     const startCountdown = useCallback(() => {
         setIsActive(true);
     }, []);
@@ -28,8 +29,6 @@ const Countdown: React.FC = () => {
         setTime(25 * 60);
     }, []);
 
-
-
     useEffect(() => {
         if ( isActive && time > 0 ) {
             countdownTimeout = setTimeout(() => { 
@@ -38,6 +37,7 @@ const Countdown: React.FC = () => {
         } else if ( isActive && time === 0 ) {
             setHasFinished(true);
             setIsActive(false);
+            startNewChallenge();
         }
     }, [isActive, time]);
 
