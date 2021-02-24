@@ -38,7 +38,7 @@ export const CountdownContainer = styled.div`
     }
 `;
 
-export const CountdownButton = styled.button`
+export const CountdownButton = styled.button<{ active: boolean }>`
     width: 100%;
     height: 5rem;
 
@@ -51,15 +51,22 @@ export const CountdownButton = styled.button`
     border: 0;
     border-radius: 5px;
 
-    background: ${ variables.blue };
-    color: ${ variables.white };
+    background: ${ props => props.active ? variables.white : variables.blue };
+    color: ${ props => props.active ? variables.blue : variables.white };
 
     font-size: 1.25rem;
     font-weight: 600;
 
     transition: background-color .2s;
 
-    &:hover {
-        background: ${ variables.blueDark }
+    &:not(:disabled):hover {
+        background: ${ props => props.active ? variables.red : variables.blueDark };
+        ${ props => props.active && `color: ${ variables.white };` }
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background: ${ variables.white };
+        color: ${ variables.text }
     }
 `
